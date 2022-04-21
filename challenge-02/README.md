@@ -40,7 +40,35 @@ file-prood.txt --> file read for PROD environment
 - Please provide complete written instructions on how to use your solution files. Like how to run, build, deploy.
 
 ## Solution 
-???
+- I've created a Docker file "Dockerfile" and Docker compose file "docker-compose.yaml" to achieve the ask.
 
+### Prerequisites
+- We need Docker to be installed in our environment and Docker service to be in running state to execute the above Docker resource files.
+```
+curl -fsSL https://get.docker.com/ | sh
+sudo systemctl start docker
+```
 
+### Steps to execute Script
+- Navigate inside "challenge-02/golang" directory.
+- To execute the web server for "dev" with environment vairable.
+```
+vi docker-compose.yaml # update the ENV: dev
+docker-compose build
+docker-compose up -d
+```
 
+- To execute the web server for "prod" with environment vairable.
+```
+vi docker-compose.yaml # update the ENV: prod
+docker-compose stop
+docker-compose build
+docker-compose up -d
+```
+
+### Result
+- On executing the docker compose with Dev environment variable.
+<img width="369" alt="challenge02-dev" src="https://user-images.githubusercontent.com/54766634/164445563-495cab05-ffed-4348-afbf-f682504649e3.png">
+
+- On executing the docker compose with Prod environment variable.
+<img width="394" alt="challenge02-prod" src="https://user-images.githubusercontent.com/54766634/164445627-c430538d-513e-4881-8310-c3ab515fb9de.png">
