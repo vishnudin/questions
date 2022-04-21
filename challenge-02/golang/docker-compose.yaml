@@ -1,0 +1,10 @@
+version: "3"
+services:
+  go:
+    build: 
+      context: .
+      args: 
+        ENV: prod
+    container_name: "go-web-server"
+    ports:
+      - "8080:8080"
